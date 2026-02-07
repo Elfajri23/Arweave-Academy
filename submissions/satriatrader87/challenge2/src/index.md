@@ -1,15 +1,269 @@
 ---
-layout: "base"
-title: "Traditional Art"
-
+layout: base.njk
+title: Discipline Finance Control
 ---
 
-# Traditional Art
+<section class="hero">
+  <div>
+    <p class="eyebrow">Discipline-Driven Personal Finance Management</p>
+    <h2>Every unit of currency must be assigned before it can be spent.</h2>
+  </div>
+  <div class="hero-meta">
+    <div>
+      <span class="label">Current Total Balance</span>
+      <span class="value">$18,450.00</span>
+    </div>
+    <div>
+      <span class="label">Income This Month</span>
+      <span class="value">$5,200.00</span>
+    </div>
+    <div>
+      <span class="label">Expenses This Month</span>
+      <span class="value">$3,910.00</span>
+    </div>
+    <div>
+      <span class="label">Unallocated Income (Locked)</span>
+      <span class="value">$1,350.00</span>
+    </div>
+  </div>
+</section>
 
-Welcome to our collection of traditional art. Explore the beauty and heritage through curated content and stunning visuals.
+<section class="dashboard">
+  <div class="panel">
+    <h3>Bucket Balances</h3>
+    <div class="bucket-grid">
+      <div class="bucket">
+        <span class="label">Savings</span>
+        <span class="value">$4,250.00</span>
+        <span class="limit">Limit: $4,250.00</span>
+      </div>
+      <div class="bucket">
+        <span class="label">Monthly Needs</span>
+        <span class="value">$2,980.00</span>
+        <span class="limit">Limit: $2,980.00</span>
+      </div>
+      <div class="bucket">
+        <span class="label">Entertainment</span>
+        <span class="value">$520.00</span>
+        <span class="limit">Limit: $520.00</span>
+      </div>
+      <div class="bucket">
+        <span class="label">Emergency Fund</span>
+        <span class="value negative">-$120.00</span>
+        <span class="limit">Limit: $0.00</span>
+        <span class="warning">This expense exceeds the limit you previously set for yourself.</span>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Largest Expense Bucket (This Week)</h3>
+    <div class="largest">
+      <span class="label">Monthly Needs</span>
+      <span class="value">$1,180.00</span>
+      <span class="note">Groceries, utilities, transport.</span>
+    </div>
+    <div class="discipline-box">
+      <span class="label">Discipline Status</span>
+      <span class="value">Allocation Required</span>
+      <span class="note">No spending before every dollar is assigned.</span>
+    </div>
+  </div>
+</section>
 
-## Navigation
+<section class="forms">
+  <div class="panel">
+    <h3>Income Input</h3>
+    <form class="form-grid">
+      <label>
+        Date
+        <input type="date" value="2025-02-14" />
+      </label>
+      <label>
+        Income Source
+        <select>
+          <option>Salary</option>
+          <option>Bonus</option>
+          <option>Business</option>
+          <option>Freelance</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label>
+        Amount
+        <input type="number" placeholder="0.00" />
+      </label>
+      <label class="full">
+        Notes (optional)
+        <input type="text" placeholder="e.g. January salary payout" />
+      </label>
+      <button type="button" class="primary">Submit Income</button>
+      <p class="form-note">Large income triggers mandatory allocation before funds can be spent.</p>
+    </form>
+  </div>
 
-- [Batik](./batik.html)
-- [Wayang](./wayang.html)
-- [Ikebana](./ikebana.html)
+  <div class="panel">
+    <h3>Salary Allocation (Mandatory Gate)</h3>
+    <form class="form-grid allocation">
+      <label>
+        Savings (%)
+        <input type="number" placeholder="0" />
+      </label>
+      <label>
+        Monthly Needs (%)
+        <input type="number" placeholder="0" />
+      </label>
+      <label>
+        Entertainment (%)
+        <input type="number" placeholder="0" />
+      </label>
+      <label>
+        Emergency Fund (%)
+        <input type="number" placeholder="0" />
+      </label>
+      <div class="allocation-status full">
+        <span class="label">Total Allocated</span>
+        <span class="value">78%</span>
+        <span class="warning">Allocation must equal exactly 100%.</span>
+      </div>
+      <div class="allocation-status full locked">
+        <span class="label">Funds Status</span>
+        <span class="value">Locked</span>
+        <span class="note">Spending disabled until allocation reaches 100%.</span>
+      </div>
+      <button type="button" class="primary" disabled>Confirm Allocation</button>
+      <p class="form-note">Funds remain locked until allocation is valid.</p>
+    </form>
+  </div>
+
+  <div class="panel">
+    <h3>Daily Expense Input</h3>
+    <form class="form-grid">
+      <label>
+        Date
+        <input type="text" value="Auto-generated" disabled />
+      </label>
+      <label>
+        Amount
+        <input type="number" placeholder="0.00" />
+      </label>
+      <label>
+        Financial Bucket
+        <select>
+          <option>Select bucket</option>
+          <option>Savings</option>
+          <option>Monthly Needs</option>
+          <option>Entertainment</option>
+          <option>Emergency Fund</option>
+        </select>
+      </label>
+      <label>
+        Subcategory
+        <select>
+          <option>Food</option>
+          <option>Fuel</option>
+          <option>Shopping</option>
+          <option>Subscriptions</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label class="full">
+        Short Note
+        <input type="text" placeholder="e.g. grocery run" />
+      </label>
+      <button type="button" class="primary">Log Expense</button>
+      <p class="form-note">Expenses are rejected without a bucket and immediately reduce the limit.</p>
+    </form>
+  </div>
+</section>
+
+<section class="reports">
+  <div class="panel">
+    <h3>Reports &amp; Analysis</h3>
+    <div class="report-grid">
+      <div class="report">
+        <span class="label">Monthly Income vs Expense</span>
+        <div class="chart">
+          <div class="bar income" style="width: 78%"></div>
+          <div class="bar expense" style="width: 59%"></div>
+        </div>
+        <div class="legend">
+          <span>Income $5,200</span>
+          <span>Expense $3,910</span>
+        </div>
+      </div>
+      <div class="report">
+        <span class="label">Expense Distribution</span>
+        <div class="pie">
+          <div class="slice needs"></div>
+          <div class="slice savings"></div>
+          <div class="slice entertainment"></div>
+          <div class="slice emergency"></div>
+        </div>
+        <div class="legend">
+          <span>Needs 62%</span>
+          <span>Savings 18%</span>
+          <span>Entertainment 12%</span>
+          <span>Emergency 8%</span>
+        </div>
+      </div>
+    </div>
+    <div class="history">
+      <h4>Transaction History</h4>
+      <div class="filters">
+        <select>
+          <option>Last 30 Days</option>
+          <option>Last 90 Days</option>
+          <option>Custom Range</option>
+        </select>
+        <select>
+          <option>All Buckets</option>
+          <option>Savings</option>
+          <option>Monthly Needs</option>
+          <option>Entertainment</option>
+          <option>Emergency Fund</option>
+        </select>
+        <select>
+          <option>All Subcategories</option>
+          <option>Food</option>
+          <option>Fuel</option>
+          <option>Shopping</option>
+          <option>Subscriptions</option>
+        </select>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Bucket</th>
+            <th>Subcategory</th>
+            <th>Note</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-02-12</td>
+            <td>Monthly Needs</td>
+            <td>Food</td>
+            <td>Groceries</td>
+            <td>$154.00</td>
+          </tr>
+          <tr>
+            <td>2025-02-11</td>
+            <td>Entertainment</td>
+            <td>Shopping</td>
+            <td>Streaming annual plan</td>
+            <td>$120.00</td>
+          </tr>
+          <tr class="negative-row">
+            <td>2025-02-10</td>
+            <td>Emergency Fund</td>
+            <td>Fuel</td>
+            <td>Unexpected travel</td>
+            <td class="negative">$240.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
